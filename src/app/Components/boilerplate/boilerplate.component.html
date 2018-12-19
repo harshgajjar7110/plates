@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+    <tr>
+<th>Avatar</th>
+      <th>Name</th>
+      <th>Star</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let list of demo ">
+      <td>
+        <img src="{{list.owner.avatar_url}}"   style="width:100px; height: 100px; " alt="" srcset="">
+
+      </td>
+      <td>
+        <strong>
+          {{list.owner.login}}
+        </strong>
+        <a href="{{list.html_url}}">
+          {{list.name }}
+        </a>
+      </td>
+      <td>
+      <i class="fa fa-star-o" aria-hidden="true"></i> {{list.stargazers_count }}
+      </td>
+      <td>
+        {{list.description}}
+      </td>
+    </tr>
+  </tbody>
+</table>
