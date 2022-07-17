@@ -1,0 +1,2 @@
+- name: Update Node Dependencies
+  uses: neverendingqs/gh-action-node-update-deps@v1.7.0
