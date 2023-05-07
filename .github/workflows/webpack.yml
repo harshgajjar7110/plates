@@ -1,13 +1,22 @@
 name: Custom_workflow
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+on: [workflow_dispatch]
 jobs: 
   check-v: 
     runs-on: ubuntu-latest
     steps:
+      - name: Checkw
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+      - run: npm  install
+      - run: npm  run build
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-markdown
+          path: |
+            dist
+            !dist/**/*.md
+      
