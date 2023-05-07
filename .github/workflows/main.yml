@@ -1,7 +1,7 @@
 name: Custom_workflow
 on: [push]
 jobs: 
-  check-v: 
+  checkv: 
     runs-on: ubuntu-latest
     steps:
       - name: Checkw
