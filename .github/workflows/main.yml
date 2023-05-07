@@ -1,12 +1,13 @@
 name: Custom_workflow
+run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs: 
-  checkv: 
+  check-v: 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkw
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: npm  run build
+      - run: npm i
+      - run: npm run build 
