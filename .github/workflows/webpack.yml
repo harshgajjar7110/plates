@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14.x]
 
     steps:
     - uses: actions/checkout@v3
@@ -26,3 +26,15 @@ jobs:
       run: |
         npm install
         npx webpack
+
+      # ... do your compile, testing, bumpr, releasr steps here.
+
+    - name: Publish Release
+      id: publish
+      uses: packagrio/action-publishr-node@master
+      env:
+        # This is necessary in order to push a commit to the repo
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+      with:
+        # upload any assets to your github release
+        upload_assets: 'packagr-bumpr-linux-amd64'
